@@ -36,7 +36,7 @@ function App() {
 
 	const Compile = async () => {
 		await Axios.post(
-			`http://api.paiza.io:80/runners/create?source_code=${source}&language=${selectedOption.value}&input=${input}&api_key=guest`
+			`https://api.paiza.io:80/runners/create?source_code=${source}&language=${selectedOption.value}&input=${input}&api_key=guest`
 		).then(({ data }) => {
 			setId(data.id);
 			console.log(data.id);
@@ -45,7 +45,7 @@ function App() {
 
 	const Run = async () => {
 		await Axios.get(
-			`http://api.paiza.io:80/runners/get_details?id=${id}&api_key=guest`
+			`https://api.paiza.io:80/runners/get_details?id=${id}&api_key=guest`
 		).then(({ data }) => {
 			if (data.stderr) {
 				setoutput(data.stderr);
